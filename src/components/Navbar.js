@@ -1,14 +1,22 @@
+import { useContext } from 'react'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
+import LoginContext from '../store/login'
 
 export default function Navbar() {
+  const { isAuthenticated } = useContext(LoginContext)
+
   return (
     <nav className="nav">
       <ul>
-        <CustomLink to="/cadrage">Cadrage</CustomLink>
-        <CustomLink to="/personalite">Personalite</CustomLink>
-        <CustomLink to="/motivation">Motivation</CustomLink>
-        <CustomLink to="/competances">Competances</CustomLink>
-        <CustomLink to="/action">About</CustomLink>
+        {isAuthenticated && (
+          <>
+            <CustomLink to="/cadrage">Cadrage</CustomLink>
+            <CustomLink to="/personalite">Personalite</CustomLink>
+            <CustomLink to="/motivation">Motivation</CustomLink>
+            <CustomLink to="/competances">Competances</CustomLink>
+            <CustomLink to="/action">About</CustomLink>
+          </>
+        )}
       </ul>
     </nav>
   )
