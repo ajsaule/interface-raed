@@ -112,7 +112,7 @@ const SignIn = () => {
           >
             {errMsg}
           </p>
-          <h1>Inscrivez-vous</h1>
+          <h1>S'identifier</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
               Nom et prénom:
